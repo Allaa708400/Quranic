@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quranic.R;
@@ -16,9 +17,11 @@ import java.util.List;
 public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHolder> {
 
     List<Sora> index;
+    Fragment fragment;
 
-    public SoraListAdapter(List<Sora> index) {
+    public SoraListAdapter(List<Sora> index, Fragment fragment) {
         this.index = index;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -43,9 +46,9 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
 
         TextView soraNumber, soraName, from, to;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             soraNumber = itemView.findViewById(R.id.sora_number);
             soraName = itemView.findViewById(R.id.sora_name);
             from = itemView.findViewById(R.id.sora_start);
@@ -59,6 +62,18 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
             soraName.setText(sora.getArabicName());
             from.setText(Integer.toString(sora.getStartPage()));
             to.setText(Integer.toString(sora.getEndPage()));
+
+
+           itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+
+
+
+               }
+           });
+
         }
     }
+
 }

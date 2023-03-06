@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.quranic.ui.quran.soralist.SoraListFragment"
+        android:name="com.example.quranic.ui.quran.quranindex.QuranIndexFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
