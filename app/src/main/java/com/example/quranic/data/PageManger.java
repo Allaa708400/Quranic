@@ -1,23 +1,39 @@
 package com.example.quranic.data;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
-@SuppressLint("NewApi")
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 
 public class PageManger {
 
 
-
-    public static int getQuranImageByPageNumber(Context context, int pageNumber) {
-
+    public static Drawable getQuranImageByPageNumber(Context context, int pageNumber) {
 
         DecimalFormat formatter = new DecimalFormat("000");
 
-        String drawableName = "page" + formatter.format(pageNumber);
+        String drawableName = "images/page" + formatter.format(pageNumber) + ".png";
+
+       // DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+
+       // formatter.setDecimalFormatSymbols(symbols);
 
 
-            return context.getResources().getIdentifier(drawableName,"drawable",context.getOpPackageName());
+        InputStream istr = null;
+        try {
+            istr = context.getAssets().open(drawableName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        return Drawable.createFromStream(istr, null);
 
     }
+
+
 }
