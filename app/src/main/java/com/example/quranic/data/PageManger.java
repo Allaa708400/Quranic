@@ -17,11 +17,11 @@ public class PageManger {
 
         DecimalFormat formatter = new DecimalFormat("000");
 
-        String drawableName = "images/page" + formatter.format(pageNumber) + ".png";
+        String drawableName = "quran/images/page" + formatter.format(pageNumber) + ".png";
 
-       // DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
 
-       // formatter.setDecimalFormatSymbols(symbols);
+        formatter.setDecimalFormatSymbols(symbols);
 
 
         InputStream istr = null;

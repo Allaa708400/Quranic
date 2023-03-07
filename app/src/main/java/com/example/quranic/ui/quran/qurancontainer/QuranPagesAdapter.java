@@ -18,7 +18,7 @@ public class QuranPagesAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return new QuranPageFragment(NUM_PAGES);
+        return new QuranPageFragment(NUM_PAGES-position);
     }
 
     @Override

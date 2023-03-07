@@ -3,12 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.quran.qurancontainer.Fragment">
+    tools:context=".ui.quran.qurancontainer.QuranContainerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/quran_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:ignore="ContentDescription" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/quran_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </FrameLayout>

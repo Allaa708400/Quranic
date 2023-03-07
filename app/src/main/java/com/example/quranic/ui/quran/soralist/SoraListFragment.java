@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.quranic.R;
-import com.example.quranic.data.database.QuranDao;
+
 import com.example.quranic.data.utils.IndexTabsUtils;
 
 
@@ -53,6 +53,8 @@ public class SoraListFragment extends Fragment {
         soraList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         soraList.setAdapter(new SoraListAdapter(viewModel.getAllSoras(getContext()),this));
+
+
 
     }
 }

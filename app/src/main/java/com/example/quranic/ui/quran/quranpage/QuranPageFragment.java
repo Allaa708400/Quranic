@@ -39,6 +39,8 @@ public class QuranPageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
         imageView = view.findViewById(R.id.quran_page);
         Drawable quranPage = quranViewModel.getQuranImageByPageNumber(getContext(),pageNumber);
         imageView.setImageDrawable(quranPage);
