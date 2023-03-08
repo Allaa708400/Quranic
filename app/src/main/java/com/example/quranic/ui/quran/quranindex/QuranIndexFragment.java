@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -13,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.example.quranic.MainActivity;
 import com.example.quranic.R;
+import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -46,6 +49,12 @@ public class QuranIndexFragment extends Fragment {
                 (tab, position) -> tab.setText(viewModel.getTabAt(position))
         ).attach();
 
+         search.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
 
+
+             }
+         });
     }
 }

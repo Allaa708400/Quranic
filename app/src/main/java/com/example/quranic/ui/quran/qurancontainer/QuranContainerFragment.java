@@ -44,7 +44,7 @@ public class QuranContainerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Integer sora = 604;
         if(getArguments() != null){
-            sora = getArguments().getInt("sora");
+            sora = 604-getArguments().getInt("sora");
     }
 
         viewPager = view.findViewById(R.id.quran_pager);

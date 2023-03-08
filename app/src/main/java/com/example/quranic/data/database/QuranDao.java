@@ -23,4 +23,8 @@ public interface QuranDao {
     @Query("SELECT jozz as jozzNumber, MIN(page) as startPage ,MAX(page) as endPage FROM quran WHERE jozz = :jozzNumber")
     Jozz getJozzByNumber(int jozzNumber);
 
+
+    @Query("SELECT * FROM quran WHERE aya_text_emlaey LIKE '%' || :keyword || '%'")
+    List<Aya> getAyaBySubText(String keyword);
+
 }
