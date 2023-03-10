@@ -1,13 +1,19 @@
 package com.example.quranic.ui.quran.quransearch;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.quranic.MainActivity;
 import com.example.quranic.R;
 import com.example.quranic.data.pojo.Aya;
+import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
+import com.example.quranic.ui.quran.quranpage.QuranPageFragment;
 
 import java.util.ArrayList;
 
@@ -66,6 +72,23 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         soraName.setText(aya.getSora_name_ar());
         ayaContent.setText(aya.getAya_text());
 
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                MainActivity activity = (MainActivity) itemView.getContext();
+
+                Fragment fr = new QuranPageFragment(aya.getPage());
+
+
+                Bundle args = new Bundle();
+
+                args.putInt("aya", aya.getPage());
+                fr.setArguments(args);
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainerView, fr, "QURAN_PAGE").commit();
+            }
+        });
         }
     }
 }
