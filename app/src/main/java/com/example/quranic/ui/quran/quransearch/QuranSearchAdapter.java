@@ -1,43 +1,27 @@
 package com.example.quranic.ui.quran.quransearch;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.quranic.R;
 import com.example.quranic.data.pojo.Aya;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class QuranSearchAdapter extends RecyclerView.Adapter<QuranSearchAdapter.ViewHolder> {
 
 private ArrayList<Aya> ayat;
 
+private Fragment fragment;
+
+public QuranSearchAdapter(Fragment fragment) {
+        this.fragment = fragment;
 
 
-
-
-
-
-
-//private Fragment fragment;
-
-//public QuranSearchAdapter(Fragment fragment) {
- //       this.fragment = fragment;
-  //
-    //
-    //      }
-
-
-
-
+         }
 
 @NonNull
 @Override
@@ -46,19 +30,10 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         .inflate(R.layout.list_item_quran_search,parent,false));
         }
 
-
-
-
-
 @Override
 public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(ayat.get(position));
         }
-
-
-
-
-
 
 @Override
 public int getItemCount() {
@@ -85,21 +60,13 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     }
 
     public void bind(Aya aya) {
-      //  NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
-
-      //  soraNo.setText(nf.format(aya.getSora()));
-      //  ayaNo.setText(nf.format(aya.getAya_no()));
 
         soraNo.setText(String.valueOf(aya.getSora()));
         ayaNo.setText(String.valueOf(aya.getAya_no()));
-
         soraName.setText(aya.getSora_name_ar());
         ayaContent.setText(aya.getAya_text());
 
-
-      //  itemView.setOnClickListener(v->{
-        //    NavHostFragment.findNavController(fragment).navigate(QuranSearchFragmentDirections.actionQuranSearchFragmentToQuranFragment(aya.getPage()));
-        };
+        }
     }
 }
 

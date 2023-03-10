@@ -10,8 +10,10 @@ import com.example.quranic.ui.quran.soralist.SoraListFragment;
 public class QuranIndexPagerAdapter extends FragmentStateAdapter {
     public static final int PAGES_COUNT = 3;
 
+
     public QuranIndexPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
+
     }
 
     @NonNull

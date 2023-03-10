@@ -15,7 +15,11 @@ public class PageManger {
 
     public static Drawable getQuranImageByPageNumber(Context context, int pageNumber) {
 
-        DecimalFormat formatter = new DecimalFormat("000");
+        DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.US);
+
+
+       DecimalFormat formatter = new DecimalFormat("000",dfs);
+
 
         String drawableName = "quran/images/page" + formatter.format(pageNumber) + ".png";
 

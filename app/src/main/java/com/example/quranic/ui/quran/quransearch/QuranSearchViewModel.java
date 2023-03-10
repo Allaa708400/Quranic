@@ -1,6 +1,9 @@
 package com.example.quranic.ui.quran.quransearch;
 
-import android.content.Context;
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.example.quranic.data.database.QuranDao;
 import com.example.quranic.data.database.QuranDatabase;
@@ -8,13 +11,15 @@ import com.example.quranic.data.pojo.Aya;
 
 import java.util.ArrayList;
 
-public class QuranSearchViewModel  {
+public class QuranSearchViewModel extends AndroidViewModel {
 
-    public ArrayList<Aya> getSearchResult(Context context,String keyword) {
-        QuranDao dao = QuranDatabase.getInstance(context).quranDao();
+    public QuranSearchViewModel(@NonNull Application application) {
+        super(application);
+    }
+
+    public ArrayList<Aya> getSearchResult(String keyword) {
+        QuranDao dao = QuranDatabase.getInstance(getApplication()).quranDao();
         return (ArrayList<Aya>) dao.getAyaBySubText(keyword);
 
     }
-
-
 }

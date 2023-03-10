@@ -58,9 +58,6 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
             from = itemView.findViewById(R.id.sora_start);
             to = itemView.findViewById(R.id.sora_end);
 
-
-
-
         }
 
         public void bind(Sora sora) {
@@ -75,12 +72,13 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
                 public void onClick(View view) {
 
                    MainActivity activity = (MainActivity) itemView.getContext();
+
                     Fragment fr = new QuranContainerFragment();
 
 
                    Bundle args = new Bundle();
 
-                   args.putInt("sora", sora.getStartPage());
+                    args.putInt("sora", sora.getStartPage());
                     fr.setArguments(args);
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
                     fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainerView, fr, "QURAN_CONTAINER").commit();

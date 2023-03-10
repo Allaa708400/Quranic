@@ -16,8 +16,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.quranic.R;
-import com.example.quranic.data.database.QuranDao;
-import com.example.quranic.data.database.QuranDatabase;
+
 import com.example.quranic.data.pojo.Aya;
 
 import java.util.ArrayList;
@@ -33,16 +32,24 @@ public class QuranSearchFragment extends Fragment {
 
     private QuranSearchAdapter adapter;
 
-
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        adapter = new QuranSearchAdapter();
 
-        viewModel = new QuranSearchViewModel();
+
+
+        adapter = new QuranSearchAdapter(this);
+
+        viewModel = new ViewModelProvider(this).get(QuranSearchViewModel.class);
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.fragment_quran_search, container, false);
 
     }
 
@@ -64,8 +71,10 @@ public class QuranSearchFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int i, int i1, int i2) {
 
-              //  ArrayList<Aya> ayat = viewModel.getSearchResult(s.toString());
-            //    adapter.setAyat(getContext(),ayat);
+
+                ArrayList<Aya> ayat = viewModel.getSearchResult(s.toString());
+                adapter.setAyat(ayat);
+
             }
 
             @Override
@@ -74,4 +83,5 @@ public class QuranSearchFragment extends Fragment {
             }
         });
     }
+
 }

@@ -18,7 +18,7 @@ import com.example.quranic.R;
 
 public class QuranContainerFragment extends Fragment {
 
-
+    int sora ;
 
 
     private ViewPager2 viewPager;
@@ -38,20 +38,14 @@ public class QuranContainerFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-
-
         super.onViewCreated(view, savedInstanceState);
-        Integer sora = 604;
-        if(getArguments() != null){
-            sora = 604-getArguments().getInt("sora");
-    }
+
+        sora = 604-getArguments().getInt("sora");
 
         viewPager = view.findViewById(R.id.quran_pager);
         pagerAdapter = new QuranPagesAdapter(getActivity());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(sora);
-
     }
 
 

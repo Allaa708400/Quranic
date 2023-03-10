@@ -11,6 +11,7 @@ public class QuranPagesAdapter extends FragmentStateAdapter {
 
     private static final int NUM_PAGES = 604;
 
+
     public QuranPagesAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
