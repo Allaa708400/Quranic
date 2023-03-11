@@ -81,7 +81,7 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
                     args.putInt("sora", sora.getStartPage());
                     fr.setArguments(args);
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                    fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainerView, fr, "QURAN_CONTAINER").commit();
+                    fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
                 }
             });
 

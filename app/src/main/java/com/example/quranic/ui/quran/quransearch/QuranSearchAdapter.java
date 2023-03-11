@@ -86,7 +86,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
                 args.putInt("aya", aya.getPage());
                 fr.setArguments(args);
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainerView, fr, "QURAN_PAGE").commit();
+                fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_PAGE").commit();
             }
         });
         }

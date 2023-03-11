@@ -60,7 +60,7 @@ public class QuranIndexFragment extends Fragment {
                  MainActivity activity = (MainActivity) getContext();
                  Fragment fr = new QuranSearchFragment();
                  FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                 fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragmentContainerView, fr, "QURAN_SEARCH").commit();
+                 fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_SEARCH").commit();
 
              }
          });
