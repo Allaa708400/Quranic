@@ -17,7 +17,7 @@ import android.widget.EditText;
 
 import com.example.quranic.R;
 
-import com.example.quranic.data.pojo.Aya;
+import com.example.quranic.data.pojo.quran.Aya;
 
 import java.util.ArrayList;
 

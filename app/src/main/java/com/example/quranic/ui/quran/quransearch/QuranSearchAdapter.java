@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
-import com.example.quranic.data.pojo.Aya;
-import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
+import com.example.quranic.data.pojo.quran.Aya;
 import com.example.quranic.ui.quran.quranpage.QuranPageFragment;
 
 import java.util.ArrayList;

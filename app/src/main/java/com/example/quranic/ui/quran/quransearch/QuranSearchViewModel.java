@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 
 import com.example.quranic.data.database.QuranDao;
 import com.example.quranic.data.database.QuranDatabase;
-import com.example.quranic.data.pojo.Aya;
+import com.example.quranic.data.pojo.quran.Aya;
 
 import java.util.ArrayList;
 

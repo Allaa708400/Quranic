@@ -3,9 +3,9 @@ package com.example.quranic.data.database;
 import androidx.room.Dao;
 import androidx.room.Query;
 
-import com.example.quranic.data.pojo.Aya;
-import com.example.quranic.data.pojo.Jozz;
-import com.example.quranic.data.pojo.Sora;
+import com.example.quranic.data.pojo.quran.Aya;
+import com.example.quranic.data.pojo.quran.Jozz;
+import com.example.quranic.data.pojo.quran.Sora;
 
 import java.util.List;
 

@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
-import com.example.quranic.data.pojo.Sora;
+import com.example.quranic.data.pojo.quran.Sora;
 import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
 import java.util.List;
 

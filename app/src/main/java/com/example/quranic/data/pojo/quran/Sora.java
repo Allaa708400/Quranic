@@ -1,4 +1,4 @@
-package com.example.quranic.data.pojo;
+package com.example.quranic.data.pojo.quran;
 
 public class Sora {
 

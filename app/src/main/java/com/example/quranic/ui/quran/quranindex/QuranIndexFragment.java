@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -17,9 +16,6 @@ import android.widget.EditText;
 
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
-import com.example.quranic.data.pojo.Aya;
-import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
-import com.example.quranic.ui.quran.quransearch.QuranSearchAdapter;
 import com.example.quranic.ui.quran.quransearch.QuranSearchFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;

@@ -1,4 +1,4 @@
-package com.example.quranic.data.pojo;
+package com.example.quranic.data.pojo.quran;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
