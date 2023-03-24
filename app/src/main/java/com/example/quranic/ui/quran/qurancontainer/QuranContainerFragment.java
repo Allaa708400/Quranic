@@ -1,7 +1,5 @@
 package com.example.quranic.ui.quran.qurancontainer;
 
-
-
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +19,6 @@ QuranViewModel quranViewModel;
     private final int pageNumber;
 
     private ViewPager2 viewPager;
-
-     private FragmentStateAdapter pagerAdapter;
-
-
 
     public QuranContainerFragment(int pageNumber) {
 
@@ -46,22 +40,16 @@ QuranViewModel quranViewModel;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Bundle arg = getArguments();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        int sora = 604-getArguments().getInt("sora");
-
         viewPager = view.findViewById(R.id.quran_pager);
-        pagerAdapter =( new QuranPagesAdapter(getActivity()));
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setCurrentItem(sora);
-
-
+        viewPager.setAdapter(new QuranPagesAdapter(this));
+        viewPager.setCurrentItem(604-getArguments().getInt("sora"),false);
         }
 
     }

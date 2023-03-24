@@ -129,15 +129,13 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
 
         public void bind(Jozz jozz) {
 
-            NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
+            NumberFormat nf = NumberFormat.getInstance(new Locale("ar", "EG"));
 
-            soraName.setText((fragment.getString(R.string.jozz)+": "+(nf.format(jozz.getJozzNumber()))));
+            soraName.setText((fragment.getString(R.string.jozz) + ": " + (nf.format(jozz.getJozzNumber()))));
 
             soraNumber.setText("");
             from.setText(nf.format(jozz.getStartPage()));
             to.setText(nf.format(jozz.getEndPage()));
-
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -150,17 +148,13 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
 
                     Bundle args = new Bundle();
 
-                    args.putInt("sora",jozz.getStartPage());
+                    args.putInt("sora", jozz.getStartPage());
                     fr.setArguments(args);
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
                     fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
                 }
             });
-
-
         }
-
-
         public void bind(Integer page) {
 
             NumberFormat nf = NumberFormat.getInstance(new Locale("ar", "EG"));

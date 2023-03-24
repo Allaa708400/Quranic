@@ -25,7 +25,6 @@ public class SoraListFragment extends Fragment {
     private SoraListViewModel viewModel;
     private IndexTabsUtils.QuranTabs currentTab;
 
-
     public SoraListFragment(IndexTabsUtils.QuranTabs currentTab) {
         this.currentTab = currentTab;
     }
@@ -34,13 +33,11 @@ public class SoraListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         return inflater.inflate(R.layout.fragment_sora_list, container, false);
     }
@@ -49,26 +46,14 @@ public class SoraListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-      //  viewModel = new SoraListViewModel();
         viewModel = new ViewModelProvider(this).get(SoraListViewModel.class);
-
 
         soraList = view.findViewById(R.id.sora_list);
 
         soraList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-
-       // soraList.setAdapter(new SoraListAdapter(viewModel.getAllSoras(getContext()),this));
 
        soraList.setAdapter(new SoraListAdapter(viewModel.provideIndexList(currentTab), this));
     }
 }
 
-/*
-  viewModel = new ViewModelProvider(this).get(IndexListViewModel.class);
-        soraList = view.findViewById(R.id.sora_list);
-        soraList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        soraList.setAdapter(new IndexListAdapter(viewModel.provideIndexList(currentTab), this));
-
-
- */
 

@@ -8,9 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 
 import com.example.quranic.data.PagesManger;
 
-
 public class QuranViewModel extends AndroidViewModel {
-
 
     public QuranViewModel(@NonNull Application application) {
         super(application);
@@ -22,25 +20,3 @@ public class QuranViewModel extends AndroidViewModel {
     }
 
 }
-
-
-
-
-
-
-/*
-
-
-public class QuranViewModel {
-
-    public Drawable getQuranImageByPageNumber(Context context, int pageNumber) {
-
-
-        return PagesManger.getQuranImageByPageNumber(context,pageNumber);
-
-    }
-}
-
- */
-
-

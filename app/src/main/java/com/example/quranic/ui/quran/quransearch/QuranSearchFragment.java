@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 public class QuranSearchFragment extends Fragment {
 
-
     private QuranSearchViewModel viewModel;
 
     private EditText searchEditText;
@@ -34,9 +33,6 @@ public class QuranSearchFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
 
         adapter = new QuranSearchAdapter(this);
 

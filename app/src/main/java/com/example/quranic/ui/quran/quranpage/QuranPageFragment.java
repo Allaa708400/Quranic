@@ -29,7 +29,6 @@ public class QuranPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-      //  quranViewModel = new QuranViewModel();
         quranViewModel = new ViewModelProvider(this).get(QuranViewModel.class);
         return inflater.inflate(R.layout.fragment_page_quran, container, false);
     }
@@ -38,15 +37,10 @@ public class QuranPageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
         imageView = view.findViewById(R.id.quran_page);
-       // Drawable quranPage = quranViewModel.getQuranImageByPageNumber(getContext(),pageNumber);
+
         Drawable quranPage = quranViewModel.getQuranImageByPageNumber(pageNumber);
         imageView.setImageDrawable(quranPage);
-
-
-
 
     }
 }
