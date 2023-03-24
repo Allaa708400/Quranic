@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.quran.qurancontainer.QuranContainerFragment">
 
-    <ImageView
-        android:id="@+id/quran_page"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="ContentDescription" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/quran_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutDirection="ltr" />
+        android:layoutDirection="ltr"  />
+
+
+
+
 </FrameLayout>

@@ -1,5 +1,6 @@
 package com.example.quranic.ui.quran.soralist;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +12,31 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
+import com.example.quranic.data.pojo.quran.Jozz;
 import com.example.quranic.data.pojo.quran.Sora;
 import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
+
+
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 
 public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHolder> {
-    private final int pageNumber= 0;
-    List<Sora> index;
+
+
+   List<?> index;
+
     Fragment fragment;
 
-    public SoraListAdapter(List<Sora> index, Fragment fragment) {
+
+
+
+
+    public SoraListAdapter(List<?> index, Fragment fragment) {
+
+
+
         this.index = index;
         this.fragment = fragment;
 
@@ -37,7 +52,23 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.bind(index.get(position));
+
+
+
+
+
+        if (index.get(position) instanceof Sora) {
+            holder.bind((Sora) index.get(position));
+        } else if (index.get(position) instanceof Jozz) {
+            holder.bind((Jozz) index.get(position));
+
+
+
+
+        } else if (index.get(position) instanceof Integer) {
+            holder.bind((Integer) index.get(position));
+        }
+
 
     }
 
@@ -46,10 +77,9 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
         return index.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView soraNumber, soraName, from, to;
-
+        TextView soraNumber, soraName, from, to, wordTo,wordFrom;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -57,28 +87,36 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
             soraName = itemView.findViewById(R.id.sora_name);
             from = itemView.findViewById(R.id.sora_start);
             to = itemView.findViewById(R.id.sora_end);
+            wordFrom = itemView.findViewById(R.id.word_from);
+            wordTo = itemView.findViewById(R.id.word_to);
 
         }
 
+
+
         public void bind(Sora sora) {
 
-            soraNumber.setText(Integer.toString(sora.getSoraNumber()));
+            NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
+
+            wordTo.setVisibility(View.VISIBLE);
+
+            soraNumber.setText((nf.format(sora.getSoraNumber())+"-"));
             soraName.setText(sora.getArabicName());
-            from.setText(Integer.toString(sora.getStartPage()));
-            to.setText(Integer.toString(sora.getEndPage()));
+            from.setText(nf.format(sora.getStartPage()));
+            to.setText(nf.format(sora.getEndPage()));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                   MainActivity activity = (MainActivity) itemView.getContext();
-
-                    Fragment fr = new QuranContainerFragment();
+                    MainActivity activity = (MainActivity) itemView.getContext();
 
 
-                   Bundle args = new Bundle();
+                    Fragment fr = new QuranContainerFragment(sora.getStartPage());
 
-                    args.putInt("sora", sora.getStartPage());
+                    Bundle args = new Bundle();
+
+                    args.putInt("sora",sora.getStartPage());
                     fr.setArguments(args);
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
                     fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
@@ -89,7 +127,77 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
         }
 
 
+        public void bind(Jozz jozz) {
+
+            NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
+
+            soraName.setText((fragment.getString(R.string.jozz)+": "+(nf.format(jozz.getJozzNumber()))));
+
+            soraNumber.setText("");
+            from.setText(nf.format(jozz.getStartPage()));
+            to.setText(nf.format(jozz.getEndPage()));
+
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    MainActivity activity = (MainActivity) itemView.getContext();
+
+
+                    Fragment fr = new QuranContainerFragment(jozz.getStartPage());
+
+                    Bundle args = new Bundle();
+
+                    args.putInt("sora",jozz.getStartPage());
+                    fr.setArguments(args);
+                    FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                    fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
+                }
+            });
+
+
+        }
+
+
+        public void bind(Integer page) {
+
+            NumberFormat nf = NumberFormat.getInstance(new Locale("ar", "EG"));
+
+            soraName.setText((fragment.getString(R.string.page) + " : " + (nf.format(page))));
+            from.setVisibility(View.GONE);
+            to.setVisibility(View.GONE);
+            wordTo.setVisibility(View.GONE);
+            wordFrom.setVisibility(View.GONE);
+            soraNumber.setText("");
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    MainActivity activity = (MainActivity) itemView.getContext();
+
+
+                    Fragment fr = new QuranContainerFragment(page);
+
+                    Bundle args = new Bundle();
+
+                    args.putInt("sora",page);
+                    fr.setArguments(args);
+                    FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                    fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
+
+
+                }
+            });
+
+
+        }
 
     }
-
 }
+
+
+
+

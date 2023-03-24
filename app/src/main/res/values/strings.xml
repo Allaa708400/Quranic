@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Quranic</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="from_page">من صفحة</string>
     <string name="to">الى</string>
@@ -19,4 +28,25 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="coding_in_flow">Coding in Flow</string>
     <string name="info_codinginflow_com">info@codinginflow.com</string>
+
+
+    <string name="holy_quran">القرآن الكريم</string>
+    <string name="quran_index">فهرس المصحف</string>
+    <string name="quran_search">بحث في المصحف</string>
+    <string name="azkar_list">قائمة الأذكار</string>
+    <string name="azkar">الأذكار</string>
+
+    <string name="prayer_times">مواقيت الصلاة</string>
+
+    <string name="about_app">This application was developed as an open source project \n\n source code can be found at https://github.com/eng-mohamedalmahdy/MyIsamlicApplication \n\n Quran pages downloaded from https://qurancomplex.gov.sa/en/techquran/dev/ \n\n prayer times calculated using https://aladhan.com/ API</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="fajr">Fajr</string>
+    <string name="dhuhr">Dhuhr</string>
+    <string name="asr">Asr</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isha">Isha</string>
+
+
 </resources>

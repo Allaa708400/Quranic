@@ -25,25 +25,27 @@ public class AzkarHomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        azkarTypesAdapter = new AzkarTypesAdapter();
-      //  viewModel = new ViewModelProvider(this).get(AzkarTypesViewModel.class);
 
-        viewModel = new AzkarTypesViewModel();
+        azkarTypesAdapter = new AzkarTypesAdapter(this);
+        viewModel = new ViewModelProvider(this).get(AzkarTypesViewModel.class);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_azkar_home, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         azkarTypes = view.findViewById(R.id.azkar_types_list);
         azkarTypes.setAdapter(azkarTypesAdapter);
         azkarTypes.setLayoutManager(new LinearLayoutManager(getContext()));
-        azkarTypesAdapter.setAzkarTypes(viewModel.getAzkarTypes());
+        azkarTypesAdapter.setAzkarTypes(viewModel.getAzkarTypes(getContext()));
 
     }
 }

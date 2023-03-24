@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
 import com.example.quranic.ui.quran.quranpage.QuranPageFragment;
 
 public class QuranPagesAdapter extends FragmentStateAdapter {
@@ -15,6 +14,8 @@ public class QuranPagesAdapter extends FragmentStateAdapter {
     public QuranPagesAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
+
+
 
     @NonNull
     @Override

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import com.example.quranic.R;
 
 import com.example.quranic.data.utils.IndexTabsUtils;
+import com.example.quranic.ui.quran.quranpage.QuranViewModel;
 
 
 public class SoraListFragment extends Fragment {
@@ -39,6 +41,7 @@ public class SoraListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         return inflater.inflate(R.layout.fragment_sora_list, container, false);
     }
 
@@ -46,15 +49,26 @@ public class SoraListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewModel = new SoraListViewModel();
+      //  viewModel = new SoraListViewModel();
+        viewModel = new ViewModelProvider(this).get(SoraListViewModel.class);
+
 
         soraList = view.findViewById(R.id.sora_list);
 
         soraList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-        soraList.setAdapter(new SoraListAdapter(viewModel.getAllSoras(getContext()),this));
+       // soraList.setAdapter(new SoraListAdapter(viewModel.getAllSoras(getContext()),this));
 
-
-
+       soraList.setAdapter(new SoraListAdapter(viewModel.provideIndexList(currentTab), this));
     }
 }
+
+/*
+  viewModel = new ViewModelProvider(this).get(IndexListViewModel.class);
+        soraList = view.findViewById(R.id.sora_list);
+        soraList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        soraList.setAdapter(new IndexListAdapter(viewModel.provideIndexList(currentTab), this));
+
+
+ */
+

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/quranIndexFragment">
+
+
+    <fragment
+        android:id="@+id/quranFragment"
+        android:name="com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment"
+        android:label="@string/holy_quran"
+        tools:layout="@layout/fragment_page_quran">
+        <argument
+            android:name="startPage"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/quranIndexFragment"
+        android:name="com.example.myisamlicapplication.ui.quran.quranindex.QuranIndexFragment"
+        android:label="@string/quran_index"
+        tools:layout="@layout/fragment_quran_index">
+
+        <action
+            android:id="@+id/action_quranIndex_to_quranFragment"
+            app:destination="@id/quranFragment" />
+        <action
+            android:id="@+id/action_quranIndexFragment_to_quranSearchFragment"
+            app:destination="@id/quranSearchFragment" />
+        <action
+            android:id="@+id/action_quranIndexFragment_to_quranSearchFragment2"
+            app:destination="@id/quranSearchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quranSearchFragment"
+        android:name="com.example.myisamlicapplication.ui.quran.quranSearch.QuranSearchFragment"
+        android:label="@string/quran_search"
+        tools:layout="@layout/fragment_quran_search">
+        <action
+            android:id="@+id/action_quranSearchFragment_to_quranFragment"
+            app:destination="@id/quranFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/azkarHomeFragment"
+        android:name="com.example.myisamlicapplication.ui.azkar.azkarHome.AzkarHomeFragment"
+        android:label="@string/azkar_list"
+        tools:layout="@layout/fragment_azkar_home">
+        <action
+            android:id="@+id/action_azkarHomeFragment_to_azkarListFragment"
+            app:destination="@id/azkarListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/azkarListFragment"
+        android:name="com.example.myisamlicapplication.ui.azkar.azkarList.AzkarListFragment"
+        android:label="@string/azkar"
+        tools:layout="@layout/fragment_azkar_list">
+        <argument
+            android:name="azkarType"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/prayerTimesFragment"
+        android:name="com.example.myisamlicapplication.ui.prayertimes.prayertimeshome.PrayerTimesFragment"
+        android:label="@string/prayer_times"
+        tools:layout="@layout/fragment_prayer_times" >
+        <action
+            android:id="@+id/action_prayerTimesFragment_to_prayerCityPickerFragment"
+            app:destination="@id/prayerCityPickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prayerCityPickerFragment"
+        android:name="com.example.myisamlicapplication.ui.prayertimes.prayercitypicker.PrayerCityPickerFragment"
+        android:label="fragment_prayer_city_picker"
+        tools:layout="@layout/fragment_prayer_city_picker" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.myisamlicapplication.ui.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+
+
+</navigation>

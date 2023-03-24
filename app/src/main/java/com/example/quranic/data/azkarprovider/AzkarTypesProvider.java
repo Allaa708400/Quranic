@@ -1,14 +1,9 @@
 package com.example.quranic.data.azkarprovider;
-
-import android.content.Context;
-
 import com.example.quranic.data.pojo.azkar.ZekrType;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class AzkarTypesProvider {
-
 
     public static ArrayList<ZekrType> getAzkarTypes() {
 
@@ -19,6 +14,5 @@ public class AzkarTypesProvider {
 
         return azkarTypes;
     }
-
 
 }

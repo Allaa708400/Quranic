@@ -1,4 +1,5 @@
 package com.example.quranic.ui.quran.quransearch;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
 import com.example.quranic.data.pojo.quran.Aya;

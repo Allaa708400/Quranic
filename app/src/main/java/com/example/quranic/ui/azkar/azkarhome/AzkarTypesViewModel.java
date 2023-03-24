@@ -2,16 +2,21 @@ package com.example.quranic.ui.azkar.azkarhome;
 
 
 
-import com.example.quranic.data.azkarprovider.AzkarTypesProvider;
+import android.content.Context;
+
+import androidx.lifecycle.ViewModel;
+
+import com.example.quranic.data.azkarprovider.AzkarProvider;
+
 import com.example.quranic.data.pojo.azkar.ZekrType;
 
-import java.util.ArrayList;
+
+import java.util.HashSet;
 
 
-public class AzkarTypesViewModel {
+public class AzkarTypesViewModel extends ViewModel {
 
-   ArrayList<ZekrType> getAzkarTypes(){
-
-       return AzkarTypesProvider.getAzkarTypes();
+    HashSet<ZekrType> getAzkarTypes(Context context){
+        return AzkarProvider.getAzkarTypes(context);
     }
 }

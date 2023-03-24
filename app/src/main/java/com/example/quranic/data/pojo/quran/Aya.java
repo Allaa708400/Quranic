@@ -6,20 +6,14 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "quran")
 public class Aya {
-
-
     @PrimaryKey
     private int id;
-
     private int jozz;
     private int sora;
-
     @NonNull
     private String sora_name_en;
-
     @NonNull
     private String sora_name_ar;
-
     private int page;
     private int line_start;
     private int line_end;
