@@ -1,5 +1,12 @@
 package com.example.quranic;
+
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,10 +26,9 @@ import com.example.quranic.data.prayersnotification.AzanPrayersUtil;
 import com.example.quranic.databinding.ActivityMainBinding;
 import com.example.quranic.ui.about.AboutFragment;
 import com.example.quranic.ui.azkar.azkarhome.AzkarHomeFragment;
-import com.example.quranic.ui.prayertimes.prayertimes.prayertimeshome.PrayerTimesFragment;
+import com.example.quranic.ui.prayertimes.prayertimeshome.PrayerTimesFragment;
 import com.example.quranic.ui.quran.quranindex.QuranIndexFragment;
 import com.google.android.material.navigation.NavigationView;
-
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -43,9 +49,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
 
+
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+
+
+
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -60,7 +71,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-              AzanPrayersUtil.registerPrayers(this);
+        AzanPrayersUtil.registerPrayers(this);
+
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent intent = new Intent();
+            String packageName = getPackageName();
+            PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
+            if (!pm.isIgnoringBatteryOptimizations(packageName)) {
+                intent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+                intent.setData(Uri.parse("package:" + packageName));
+                startActivity(intent);
+            }
+        }
 
     }
 
@@ -80,12 +103,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().addToBackStack(null).
                     replace(R.id.fragment_container, new QuranIndexFragment()).commit();
 
-                      }
+        }
 
-           else if  (item.getItemId() == R.id.azkarHomeFragment) {
-                getSupportFragmentManager().beginTransaction().addToBackStack(null).
-                        replace(R.id.fragment_container, new AzkarHomeFragment()).commit();
-            }
+        else if  (item.getItemId() == R.id.azkarHomeFragment) {
+            getSupportFragmentManager().beginTransaction().addToBackStack(null).
+                    replace(R.id.fragment_container, new AzkarHomeFragment()).commit();
+        }
 
 
         else if  (item.getItemId() == R.id.prayerTimesFragment) {
@@ -111,12 +134,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
 
 }
+
+
+
+
+
+
+
 

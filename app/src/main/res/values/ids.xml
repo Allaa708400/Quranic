@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="nav_message" type="id" />
-    <item name="nav_chat" type="id" />
-    <item name="nav_profile" type="id" />
-    <item name="nav_share" type="id" />
-    <item name="nav_send" type="id" />
-</resources>

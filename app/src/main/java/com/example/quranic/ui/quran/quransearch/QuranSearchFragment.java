@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
@@ -17,6 +18,8 @@ import android.widget.EditText;
 import com.example.quranic.R;
 
 import com.example.quranic.data.pojo.quran.Aya;
+import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
+import com.example.quranic.ui.quran.qurancontainer.QuranPagesAdapter;
 
 import java.util.ArrayList;
 
@@ -44,16 +47,19 @@ public class QuranSearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_quran_search, container, false);
-
+       // return inflater.inflate(R.layout.fragment_quran_search, container, false);
+        return LayoutInflater.from(getContext()).inflate(R.layout.fragment_quran_search, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         searchEditText = view.findViewById(R.id.search_quran_edit_text);
         searchResultRecyclerView = view.findViewById(R.id.quran_search_result);
+        searchResultRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
 
         searchResultRecyclerView.setAdapter(adapter);
 
@@ -70,10 +76,14 @@ public class QuranSearchFragment extends Fragment {
                 ArrayList<Aya> ayat = viewModel.getSearchResult(s.toString());
                 adapter.setAyat(ayat);
 
+
+
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+
 
             }
         });

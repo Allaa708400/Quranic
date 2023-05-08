@@ -5,24 +5,22 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
-
 import com.example.quranic.R;
 import com.example.quranic.data.networking.PrayersRetrofit;
 import com.example.quranic.data.pojo.prayertimes.Datum;
 import com.example.quranic.data.pojo.prayertimes.PrayerTimesResponse;
 import com.example.quranic.data.pojo.prayertimes.Timings;
 import com.example.quranic.data.prayersnotification.PrayersPreferences;
-
 import java.util.Calendar;
-
 import java.util.List;
 import java.util.Objects;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+/**
+ * Implementation of App Widget functionality.
+ */
 public class AzkarPrayerWidgetWidgetVertical extends AppWidgetProvider {
 
     private static final String TAG = "AzkarPrayerWidgetWidget";

@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
 import com.example.quranic.data.pojo.quran.Aya;
+import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
 import com.example.quranic.ui.quran.quranpage.QuranPageFragment;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class QuranSearchAdapter extends RecyclerView.Adapter<QuranSearchAdapter.ViewHolder> {
 
@@ -66,26 +69,37 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
     public void bind(Aya aya) {
 
+        NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
+
+        soraNo.setText(nf.format(aya.getSora()));
+        ayaNo.setText(nf.format(aya.getAya_no()));
+        soraName.setText(aya.getSora_name_ar());
+        ayaContent.setText(aya.getAya_text());
+        /*
         soraNo.setText(String.valueOf(aya.getSora()));
         ayaNo.setText(String.valueOf(aya.getAya_no()));
         soraName.setText(aya.getSora_name_ar());
         ayaContent.setText(aya.getAya_text());
 
+
+         */
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 MainActivity activity = (MainActivity) itemView.getContext();
 
-                Fragment fr = new QuranPageFragment(aya.getPage());
 
+
+                Fragment fr = new QuranContainerFragment(aya.getPage());
 
                 Bundle args = new Bundle();
 
-                args.putInt("aya", aya.getPage());
+
+                args.putInt("sora", aya.getPage());
                 fr.setArguments(args);
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_PAGE").commit();
+                fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
             }
         });
         }

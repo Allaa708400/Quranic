@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    tools:showIn="@layout/app_bar_main"
     tools:context=".ui.quran.quranindex.QuranIndexFragment">
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -28,8 +28,7 @@
             android:backgroundTint="@null"
             android:drawableStart="@drawable/ic_baseline_search_24"
             android:enabled="true"
-            android:focusable="false"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:focusable="false"/>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.tabs.TabLayout
@@ -39,8 +38,7 @@
         android:layout_gravity="center"
         app:tabGravity="fill"
         app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:tabMode="fixed" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/quran_index_pager"

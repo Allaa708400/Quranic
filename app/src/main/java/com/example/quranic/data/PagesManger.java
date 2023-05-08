@@ -1,13 +1,12 @@
 package com.example.quranic.data;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
-
 
 public class PagesManger {
 
@@ -41,6 +40,10 @@ public class PagesManger {
 
 
 
+
+
+
+
 /*
 
 public class PagesManger {
@@ -66,5 +69,9 @@ public class PagesManger {
 }
 
  */
+
+
+
+
 
 

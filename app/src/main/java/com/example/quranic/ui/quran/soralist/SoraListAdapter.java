@@ -9,12 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.quranic.MainActivity;
 import com.example.quranic.R;
 import com.example.quranic.data.pojo.quran.Jozz;
 import com.example.quranic.data.pojo.quran.Sora;
 import com.example.quranic.ui.quran.qurancontainer.QuranContainerFragment;
+
 
 
 import java.text.NumberFormat;
@@ -105,6 +107,11 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
             from.setText(nf.format(sora.getStartPage()));
             to.setText(nf.format(sora.getEndPage()));
 
+
+
+
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -112,7 +119,10 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
                     MainActivity activity = (MainActivity) itemView.getContext();
 
 
+                 //   Fragment fr = new QuranContainerFragment(sora.getStartPage());
+
                     Fragment fr = new QuranContainerFragment(sora.getStartPage());
+
 
                     Bundle args = new Bundle();
 
@@ -120,8 +130,12 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
                     fr.setArguments(args);
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
                     fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
+
+
                 }
             });
+
+
 
 
         }
@@ -131,11 +145,16 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
 
             NumberFormat nf = NumberFormat.getInstance(new Locale("ar", "EG"));
 
-            soraName.setText((fragment.getString(R.string.jozz) + ": " + (nf.format(jozz.getJozzNumber()))));
+            soraName.setText((fragment.getString(R.string.jozz) + " " + (nf.format(jozz.getJozzNumber()) + " : ")));
 
             soraNumber.setText("");
             from.setText(nf.format(jozz.getStartPage()));
             to.setText(nf.format(jozz.getEndPage()));
+
+
+
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -154,7 +173,18 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
                     fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fr, "QURAN_CONTAINER").commit();
                 }
             });
+
+
+
+
+
+
+
         }
+
+
+
+
         public void bind(Integer page) {
 
             NumberFormat nf = NumberFormat.getInstance(new Locale("ar", "EG"));
@@ -165,6 +195,11 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
             wordTo.setVisibility(View.GONE);
             wordFrom.setVisibility(View.GONE);
             soraNumber.setText("");
+
+
+
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -185,6 +220,8 @@ public class SoraListAdapter extends RecyclerView.Adapter<SoraListAdapter.ViewHo
 
                 }
             });
+
+
 
 
         }

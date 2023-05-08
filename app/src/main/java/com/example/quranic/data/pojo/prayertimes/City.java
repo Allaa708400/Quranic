@@ -24,7 +24,7 @@ public class City {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry() {
         this.country = country;
     }
 

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/quranSearchFragment"
-   tools:context=".ui.quran.quransearch.QuranSearchFragment">
+    tools:context="com.example.quranic.ui.quran.quransearch.QuranSearchFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
             android:layout_marginBottom="8dp"
             android:backgroundTint="@null"
             android:padding="8dp"
-
+            app:cardBackgroundColor="@color/quran_green"
             app:cardCornerRadius="25dp">
 
             <EditText

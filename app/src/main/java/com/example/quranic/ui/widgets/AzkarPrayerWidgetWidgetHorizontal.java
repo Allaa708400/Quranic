@@ -42,7 +42,7 @@ public class AzkarPrayerWidgetWidgetHorizontal extends AppWidgetProvider {
             @Override
             public void onResponse(Call<PrayerTimesResponse> call, Response<PrayerTimesResponse> response) {
                 List<Datum> data = Objects.requireNonNull(response.body()).getData();
-                if (data == null) return;
+                if (data == null) return ;
                 Timings timings = data.get(day - 1).getTimings();
                 views.setTextViewText(R.id.fajr, timings.getFajr().substring(0, 5));
                 views.setTextViewText(R.id.dhuhr, timings.getDhuhr().substring(0, 5));
@@ -51,6 +51,7 @@ public class AzkarPrayerWidgetWidgetHorizontal extends AppWidgetProvider {
                 views.setTextViewText(R.id.isha, timings.getIsha().substring(0, 5));
                 // Instruct the widget manager to update the widget
                 appWidgetManager.updateAppWidget(appWidgetId, views);
+
             }
 
             @Override

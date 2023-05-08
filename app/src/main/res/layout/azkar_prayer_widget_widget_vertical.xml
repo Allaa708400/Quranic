@@ -1,5 +1,4 @@
 ﻿<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -30,14 +29,12 @@
 
         <TextView
             android:textStyle="bold"
-
             android:id="@+id/fajr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/black"
-
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -57,26 +54,23 @@
 
         <TextView
             android:layout_width="0dp"
-
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/dhuhr"
             android:textColor="@color/black"
-
-            android:textSize="14sp"            android:textStyle="bold" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <TextView
             android:textStyle="bold"
-
             android:id="@+id/dhuhr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/black"
-
             android:textSize="14sp"  />
 
     </LinearLayout>
@@ -96,7 +90,6 @@
 
         <TextView
             android:textStyle="bold"
-
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -104,19 +97,16 @@
             android:gravity="center"
             android:text="@string/asr"
             android:textColor="@color/black"
-
             android:textSize="14sp" />
 
         <TextView
             android:textStyle="bold"
-
             android:id="@+id/asr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/black"
-
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -136,7 +126,6 @@
 
         <TextView
             android:textStyle="bold"
-
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -144,19 +133,16 @@
             android:gravity="center"
             android:text="@string/maghrib"
             android:textColor="@color/black"
-
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/maghrib"
             android:layout_width="0dp"
             android:textStyle="bold"
-
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/black"
-
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -176,7 +162,6 @@
 
         <TextView
             android:textStyle="bold"
-
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -184,19 +169,16 @@
             android:gravity="center"
             android:text="@string/isha"
             android:textColor="@color/black"
-
             android:textSize="14sp"  />
 
         <TextView
             android:textStyle="bold"
-
             android:id="@+id/isha"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/black"
-
             android:textSize="14sp" />
 
     </LinearLayout>

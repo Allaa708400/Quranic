@@ -3,31 +3,30 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        app:cardCornerRadius="24dp"
-        app:cardBackgroundColor="@color/quran_yellow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintStart_toStartOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:textSize="24sp"
-                android:gravity="center"
                 android:id="@+id/zekr_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true" />
+                android:gravity="center"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/zeker_image"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

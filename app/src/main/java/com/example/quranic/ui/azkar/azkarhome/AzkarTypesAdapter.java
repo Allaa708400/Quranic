@@ -90,7 +90,7 @@ public class AzkarTypesAdapter extends RecyclerView.Adapter<AzkarTypesAdapter.Vi
                   args.putString("zekrType", zekrType.getZekrName());
                   fr.setArguments(args);
                   FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                  fragmentManager.beginTransaction().addToBackStack(null).
+                 fragmentManager.beginTransaction().addToBackStack(null).
                           replace(R.id.fragment_container, fr, "AZKAR_LIST").commit();
 
               }
